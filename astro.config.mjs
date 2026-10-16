@@ -3,11 +3,9 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { readdirSync, readFileSync } from 'node:fs';
 
-// Deployed to aayush1maggo.github.io/personal_site.
-// For a custom domain: set SITE to 'https://[YOUR-DOMAIN]', BASE to '/',
-// and add the domain in repo Settings → Pages.
-const SITE = 'https://aayush1maggo.github.io';
-const BASE = '/personal_site';
+// Custom domain (set in repo Settings → Pages; public/CNAME matches it).
+const SITE = 'https://www.aayushmaggo.com';
+const BASE = '/';
 
 // Draft case studies are built (so links work) but kept out of the sitemap and noindexed.
 const draftSlugs = readdirSync('./src/content/work')

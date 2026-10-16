@@ -8,7 +8,7 @@ Requires Node 22.22+.
 
 ```sh
 npm install
-npm run dev       # http://localhost:4321/personal_site/
+npm run dev       # http://localhost:4321/
 npm run build     # static output in dist/
 npm run preview   # serve the built site
 ```
@@ -31,13 +31,10 @@ Every push to `master` runs `.github/workflows/deploy.yml`, which builds with `w
 
 One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-The site currently deploys to `https://aayush1maggo.github.io/personal_site/` (`base: '/personal_site'`). To move to a custom domain:
+The site is served at `https://www.aayushmaggo.com/`. The bare domain `aayushmaggo.com` redirects to `www`.
 
-1. In `astro.config.mjs` set `SITE = 'https://[YOUR-DOMAIN]'` and `BASE = '/'`.
-2. Add `public/CNAME` containing the domain.
-3. Add the domain under Settings → Pages, point DNS at GitHub, and tick **Enforce HTTPS**.
-
-Note: `robots.txt` only works at a domain root, so it has no effect until the site is on a custom domain (or moved to an `aayush1maggo.github.io` repo).
+- `SITE` in `astro.config.mjs` and `public/CNAME` must both match the domain set under Settings → Pages.
+- DNS is at GoDaddy: four `A` records for `@` pointing to GitHub Pages (`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`) and a `CNAME` for `www` pointing to `aayush1maggo.github.io`.
 
 ## Analytics events
 
@@ -57,4 +54,3 @@ GA4 loads only in production builds, and only once `GA4_ID` is set.
 - [ ] `[YOUR PHOTO]` on the homepage and `/about/` (add the image under `src/assets/` and render with `astro:assets` `<Image>`)
 - [ ] Case studies: First 5 Minutes (`[+X%]`, `[TIMEFRAME]`), Angry Chair (`[PRIMARY COMMERCIAL KEYWORDS]`), Centralised SEO reporting (problem/approach detail). Use real, verified figures only
 - [ ] Open Graph share image (add `og:image` in `src/layouts/Base.astro`)
-- [ ] Custom domain (see Deployment)
