@@ -1,0 +1,36 @@
+---
+// GA4 loads only in production builds, and only once a real measurement ID is set.
+import { GA4_ID, isPlaceholder } from '../config';
+const enabled = import.meta.env.PROD && !isPlaceholder(GA4_ID);
+---
+
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () {
+    window.dataLayer.push(arguments);
+  };
+</script>
+{
+  enabled && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`} />
+      <script is:inline define:vars={{ id: GA4_ID }}>
+        gtag('js', new Date());
+        gtag('config', id);
+      </script>
+    </>
+  )
+}
+<script is:inline>
+  // book_call_click on any booking link; cta_click (with location) on main CTAs.
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('a[data-booking], a[data-cta], button[data-cta]');
+    if (!el) return;
+    if (el.hasAttribute('data-booking')) {
+      gtag('event', 'book_call_click', { location: el.dataset.cta || 'unknown' });
+    }
+    if (el.dataset.cta) {
+      gtag('event', 'cta_click', { location: el.dataset.cta, link_text: el.textContent.trim() });
+    }
+  });
+</script>
