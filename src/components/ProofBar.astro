@@ -1,0 +1,13 @@
+---
+import { agencyBrands } from '../data';
+---
+
+<section class="proof" aria-label="Experience">
+  <div class="container proof__inner">
+    <span class="eyebrow">Brands I've worked on, via AKQA &amp; R/GA</span>
+    <ul class="proof__brands">
+      {agencyBrands.map((b) => <li>{b}</li>)}
+    </ul>
+    <span class="proof__note">2× APAC Search Awards winner, 2022</span>
+  </div>
+</section>

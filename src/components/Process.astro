@@ -1,0 +1,20 @@
+---
+import { steps } from '../data';
+---
+
+<section class="band-rule">
+  <div class="container section section--tight">
+    <h2 class="h-section">How we'd work together</h2>
+    <ol class="steps">
+      {
+        steps.map((s) => (
+          <li class:list={['step', { 'step--accent': s.accent }]}>
+            <span class="step__when">{s.when}</span>
+            <span class="step__title">{s.title}</span>
+            <span class="step__text">{s.text}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

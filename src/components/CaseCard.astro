@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { url } from '../utils';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+}
+const { entry } = Astro.props;
+const { title, tags, metric, metricLabel, summary } = entry.data;
+---
+
+<article class="case">
+  <div class="case__metric">
+    <span class="metric">{metric}</span>
+    <span class="metric__label">{metricLabel}</span>
+  </div>
+  <div class="case__body">
+    <span class="case__tags">{tags.join(' · ')}</span>
+    <h3 class="h-card">{title}</h3>
+    <p class="card__text">{summary}</p>
+    <a class="case__link" href={url(`/work/${entry.id}/`)}>
+      Read the case study<span class="sr-only">: {title}</span>
+    </a>
+  </div>
+</article>
