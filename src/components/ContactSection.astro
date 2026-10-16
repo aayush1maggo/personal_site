@@ -1,0 +1,30 @@
+---
+import ContactForm from './ContactForm.astro';
+import { BOOKING_URL, EMAIL, LINKEDIN_URL } from '../config';
+
+interface Props {
+  id?: string;
+  heading?: 'h1' | 'h2';
+  idPrefix?: string;
+}
+const { id = 'contact', heading = 'h2', idPrefix = 'c' } = Astro.props;
+const Heading = heading;
+---
+
+<section id={id} class="band-dark">
+  <div class="container contact">
+    <div class="stack">
+      <Heading class="h-contact">Let's find your next growth lever.</Heading>
+      <p class="muted measure-sm">
+        Book a free 30-minute call, or send a few details and I'll reply within one business day.
+      </p>
+      <a class="btn btn--accent self-start" href={BOOKING_URL} data-booking data-cta={`contact-${idPrefix}`}>Book a call</a>
+      <div class="contact__details">
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <a href={LINKEDIN_URL}>LinkedIn</a>
+      </div>
+      <slot />
+    </div>
+    <ContactForm idPrefix={idPrefix} />
+  </div>
+</section>

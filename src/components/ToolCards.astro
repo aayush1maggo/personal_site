@@ -1,0 +1,15 @@
+---
+import { tools } from '../data';
+---
+
+<div class="grid grid--300">
+  {
+    tools.map((t) => (
+      <article class="card card--dark">
+        <span class="card__stack">{t.stack}</span>
+        <h3 class="h-card">{t.title}</h3>
+        <p class="card__text">{t.text}</p>
+      </article>
+    ))
+  }
+</div>

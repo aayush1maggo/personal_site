@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import ProofBar from '../components/ProofBar.astro';
+import Skills from '../components/Skills.astro';
+import Process from '../components/Process.astro';
+import ContactSection from '../components/ContactSection.astro';
+---
+
+<Base
+  title="About Aayush Maggo – Sydney SEO and analytics specialist"
+  description="10+ years in search and analytics: eCommerce SEO in Chandigarh, measurement and experimentation at AKQA and R/GA in Melbourne, now independent in Sydney."
+>
+  <section class="container about">
+    <div class="photo">[YOUR PHOTO]</div>
+    <div class="stack">
+      <span class="eyebrow"><span class="marker" aria-hidden="true"></span>About</span>
+      <h1 class="h-section">Hi, I'm Aayush.</h1>
+      <p class="body-soft">
+        I've spent 10+ years in search and analytics: eCommerce SEO in Chandigarh, measurement and experimentation at AKQA
+        and R/GA in Melbourne, and now independent work from Sydney.
+      </p>
+      <p class="body-soft">
+        Agency pedigree, freelancer focus. You work with me directly, and I bring the engineering skills to build what
+        off-the-shelf tools can't.
+      </p>
+      <Skills />
+    </div>
+  </section>
+  <ProofBar />
+  <Process />
+  <ContactSection />
+</Base>

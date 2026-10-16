@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import ToolCards from '../components/ToolCards.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { url } from '../utils';
+---
+
+<Base
+  title="The lab – custom SEO and AI-search tools – Aayush Maggo"
+  description="A proprietary rank tracker, an AEO monitor for ChatGPT, Gemini and Perplexity, and AI research agents built with Python, LangGraph and Google ADK."
+>
+  <section class="band-dark">
+    <div class="container page-hero">
+      <span class="eyebrow">The lab</span>
+      <h1 class="h-hero">I don't just use SEO tools. I build them.</h1>
+      <p class="lede muted">
+        Custom tooling means faster research, cheaper reporting and data you own, not data rented from a SaaS dashboard.
+      </p>
+    </div>
+    <div class="container section section--after-hero">
+      <ToolCards />
+      <a class="btn btn--light self-start" href={url('/contact/?goal=AI+search+visibility')} data-cta="tools">Check your brand's AI visibility, free</a>
+    </div>
+  </section>
+  <ContactSection />
+</Base>
