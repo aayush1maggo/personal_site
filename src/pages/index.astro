@@ -20,31 +20,31 @@ const jsonLd = [
     '@type': 'Person',
     '@id': `${home}#person`,
     name: 'Aayush Maggo',
-    jobTitle: 'SEO, Analytics and AI Search Specialist',
+    jobTitle: 'AI Search and SEO Specialist',
     url: home,
     email: `mailto:${EMAIL}`,
     sameAs: [LINKEDIN_URL],
     address: { '@type': 'PostalAddress', addressLocality: 'Sydney', addressRegion: 'NSW', addressCountry: 'AU' },
-    knowsAbout: ['Search engine optimisation', 'Technical SEO', 'Answer engine optimisation', 'Generative engine optimisation', 'Google Analytics 4', 'Conversion rate optimisation'],
+    knowsAbout: ['AI search optimisation', 'Generative engine optimisation', 'Answer engine optimisation', 'Search engine optimisation', 'Technical SEO', 'Keyword research'],
   },
   {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': `${home}#service`,
-    name: 'Aayush Maggo – SEO, Analytics and AI Search',
+    name: 'Aayush Maggo – AI Search & SEO Specialist',
     url: home,
     email: EMAIL,
     founder: { '@id': `${home}#person` },
     areaServed: 'AU',
     address: { '@type': 'PostalAddress', addressLocality: 'Sydney', addressRegion: 'NSW', addressCountry: 'AU' },
-    serviceType: ['Technical SEO', 'AI search visibility (AEO/GEO)', 'Analytics & tracking', 'CRO & experimentation'],
+    serviceType: ['AI search optimisation (GEO/AEO)', 'Technical SEO', 'SEO strategy'],
   },
 ];
 ---
 
 <Base
-  title="Aayush Maggo – SEO, Analytics and AI Search"
-  description="Sydney freelance SEO, GA4 tracking and AI-search visibility specialist. 10+ years across AKQA, R/GA and independent clients. Book a free 30-minute call."
+  title="AI Search & SEO Specialist, Sydney | Aayush Maggo"
+  description="Freelance AI search and SEO specialist in Sydney. Get found on Google and cited in ChatGPT, Gemini and Perplexity. 10+ years across AKQA, R/GA and independent clients."
   jsonLd={jsonLd}
 >
   <!-- HERO -->
@@ -52,12 +52,12 @@ const jsonLd = [
     <div class="stack stack--28">
       <div class="eyebrow">
         <span class="marker" aria-hidden="true"></span>
-        <span>Sydney · Freelance SEO &amp; analytics</span>
+        <span>Sydney · Freelance AI search &amp; SEO</span>
       </div>
       <h1 class="h-hero">Get found on Google <span class="accent">and</span> in AI answers. Then prove it worked.</h1>
       <p class="lede">
-        SEO, GA4 tracking and AI-search visibility for growing brands, from a specialist with 10+ years across AKQA,
-        R/GA and independent clients. Strategy, implementation and the tooling to measure it.
+        AI search optimisation and SEO for growing brands, from a specialist with 10+ years across AKQA, R/GA and
+        independent clients. Strategy, implementation and the tooling to show what moved.
       </p>
       <div class="btn-row">
         <a class="btn btn--dark" href={BOOKING_URL} data-booking data-cta="hero">Book a free 30-min call</a>
@@ -82,9 +82,9 @@ const jsonLd = [
           <span class="monitor__note">Brand mentions in ChatGPT, Gemini, Perplexity</span>
         </div>
         <div class="monitor__row">
-          <span class="monitor__label">GA4 conversions</span>
+          <span class="monitor__label">Leads from search</span>
           <svg aria-hidden="true" width="120" height="32" viewBox="0 0 120 32" fill="none"><rect x="0" y="20" width="12" height="12" rx="2" fill="#C9CEC5"></rect><rect x="18" y="16" width="12" height="16" rx="2" fill="#C9CEC5"></rect><rect x="36" y="18" width="12" height="14" rx="2" fill="#C9CEC5"></rect><rect x="54" y="12" width="12" height="20" rx="2" fill="#C9CEC5"></rect><rect x="72" y="9" width="12" height="23" rx="2" fill="#C9CEC5"></rect><rect x="90" y="5" width="12" height="27" rx="2" fill="#101915"></rect><rect x="108" y="2" width="12" height="30" rx="2" fill="#101915"></rect></svg>
-          <span class="monitor__note">Clean tracking from click to lead</span>
+          <span class="monitor__note">Organic and AI referrals, from click to enquiry</span>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@ const jsonLd = [
   <!-- SERVICES -->
   <section id="services" class="container section">
     <div class="section-head">
-      <h2 class="h-section measure-h">Four ways I help brands grow</h2>
+      <h2 class="h-section measure-h">Three ways I help brands get found</h2>
       <p class="muted measure-p">
         Start with a fixed-price audit, or bring me in for ongoing work. Either way, every recommendation ties back to a number.
       </p>
@@ -134,8 +134,8 @@ const jsonLd = [
         <span class="eyebrow">About</span>
         <h2 class="h-section">Hi, I'm Aayush.</h2>
         <p class="body-soft">
-          I've spent 10+ years in search and analytics: eCommerce SEO in Chandigarh, measurement and experimentation at
-          AKQA and R/GA in Melbourne, and now independent work from Sydney.
+          I've spent 10+ years in search: eCommerce SEO in Chandigarh, measurement and experimentation at AKQA and R/GA
+          in Melbourne, and now independent AI search and SEO work from Sydney.
         </p>
         <p class="body-soft">
           Agency pedigree, freelancer focus. You work with me directly, and I bring the engineering skills to build what

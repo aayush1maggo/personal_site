@@ -1,6 +1,6 @@
 # Aayush Maggo – Freelance Website
 
-Personal freelance site for Aayush Maggo, a Sydney-based SEO, analytics and AI-search (AEO/GEO) specialist. The site's job is to get the right client to book a call or send an enquiry.
+Personal freelance site for Aayush Maggo, a Sydney-based AI search (GEO/AEO) and SEO specialist. Position as AI search + SEO first; analytics and reporting are supporting proof, not a separate service line (decided Oct 2026 from AU search-volume research). The site's job is to get the right client to book a call or send an enquiry.
 
 ## Hosting: GitHub Pages (static only)
 

@@ -1,6 +1,6 @@
 # Aayush Maggo – freelance site
 
-Static Astro site for Aayush Maggo (SEO, analytics and AI search, Sydney). Hosted on GitHub Pages. See `CLAUDE.md` for the full brief and `design/homepage-reference.html` for the approved homepage design.
+Static Astro site for Aayush Maggo (AI search and SEO specialist, Sydney). Hosted on GitHub Pages. See `CLAUDE.md` for the full brief and `design/homepage-reference.html` for the approved homepage design.
 
 ## Local development
 

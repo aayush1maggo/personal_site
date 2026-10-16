@@ -2,10 +2,39 @@
 
 export const services = [
   {
-    id: 'technical-seo',
+    id: 'ai-search',
     num: '01',
-    title: 'Technical SEO & organic growth',
-    text: 'Audits, site architecture, indexation, Core Web Vitals, schema, and keyword strategy mapped to intent.',
+    title: 'AI search optimisation (GEO/AEO)',
+    text: 'Get your brand cited in ChatGPT, Gemini, Perplexity and Google AI Overviews. I track where you show up, then fix the content and signals behind it.',
+    packages: [
+      {
+        name: 'AI visibility audit',
+        price: '[PRICE]',
+        basis: 'Fixed price',
+        items: [
+          'Baseline of brand citations in ChatGPT, Gemini, Perplexity and AI Overviews',
+          'Prompts and topics where competitors get cited and you don\'t',
+          'Content, entity and schema gaps behind missing citations',
+          'Prioritised fixes ranked by impact and effort',
+        ],
+      },
+      {
+        name: 'AI search optimisation',
+        price: '[PRICE]',
+        basis: 'Per month',
+        items: [
+          'Ongoing citation and sentiment tracking across AI assistants',
+          'Content and signal improvements, shipped each month',
+          'Reporting on where you show up and what changed',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'technical-seo',
+    num: '02',
+    title: 'Technical SEO',
+    text: 'Audits, site architecture, indexation, Core Web Vitals and schema, so Google and AI crawlers can find, read and trust your pages.',
     packages: [
       {
         name: 'Technical SEO audit',
@@ -14,79 +43,39 @@ export const services = [
         items: [
           'Crawl, indexation and site architecture review',
           'Core Web Vitals and schema checks',
-          'Keyword strategy mapped to search intent',
+          'AI crawler access and rendering checks',
           'Prioritised roadmap ranked by impact and effort',
         ],
       },
       {
-        name: 'Ongoing organic growth',
-        price: '[PRICE]',
-        basis: 'Per month',
-        items: ['Implementation support for the roadmap', 'Keyword and content planning', 'Monthly reporting tied to traffic and leads'],
-      },
-    ],
-  },
-  {
-    id: 'ai-search',
-    num: '02',
-    title: 'AI search visibility (AEO/GEO)',
-    text: 'Track how ChatGPT, Gemini and Perplexity cite your brand, then improve the content and signals behind it.',
-    packages: [
-      {
-        name: 'AI visibility audit',
-        price: '[PRICE]',
-        basis: 'Fixed price',
-        items: [
-          'Baseline of brand citations in ChatGPT, Gemini and Perplexity',
-          'Content and signal gaps behind missing citations',
-          'Prioritised fixes',
-        ],
-      },
-      {
-        name: 'AI visibility monitoring',
-        price: '[PRICE]',
-        basis: 'Per month',
-        items: ['Ongoing citation and sentiment tracking', 'Content and signal improvements', 'Regular reporting on where you show up'],
-      },
-    ],
-  },
-  {
-    id: 'analytics',
-    num: '03',
-    title: 'Analytics & tracking',
-    text: 'GA4 and GTM setup, BigQuery pipelines and Looker Studio dashboards your team will actually use.',
-    packages: [
-      {
-        name: 'Tracking audit & setup',
-        price: '[PRICE]',
-        basis: 'Fixed price',
-        items: ['GA4 and GTM accuracy review', 'Conversion tracking from click to lead', 'Fixes implemented and documented'],
-      },
-      {
-        name: 'Reporting & data pipelines',
+        name: 'Implementation support',
         price: '[PRICE]',
         basis: 'Per project',
-        items: ['BigQuery pipelines', 'Looker Studio dashboards built for your team', 'Handover so your team can run it'],
+        items: ['Fixes specified and handed to your developers', 'QA after each release', 'Migration and replatform support'],
       },
     ],
   },
   {
-    id: 'cro',
-    num: '04',
-    title: 'CRO & experimentation',
-    text: 'Journey analysis to find drop-offs, then A/B and multivariate tests to fix them.',
+    id: 'seo-strategy',
+    num: '03',
+    title: 'SEO strategy & organic growth',
+    text: 'Keyword strategy mapped to intent, content that answers real questions, and reporting that ties rankings back to leads.',
     packages: [
       {
-        name: 'Journey & drop-off analysis',
+        name: 'Keyword & content strategy',
         price: '[PRICE]',
         basis: 'Fixed price',
-        items: ['Funnel and journey analysis', 'Drop-off points ranked by opportunity', 'Test hypotheses ready to run'],
+        items: ['Keyword research mapped to search intent', 'Content gaps against competitors', 'Page-by-page content plan and briefs'],
       },
       {
-        name: 'Experimentation programme',
+        name: 'Ongoing SEO',
         price: '[PRICE]',
         basis: 'Per month',
-        items: ['A/B and multivariate test design and analysis', 'Results reporting', 'Rollout recommendations'],
+        items: [
+          'Monthly priorities across technical, content and AI search',
+          'Rank and AI-citation tracking',
+          'Reporting tied to organic traffic and leads',
+        ],
       },
     ],
   },
@@ -112,15 +101,15 @@ export const tools = [
 
 export const steps = [
   { when: 'WEEK 1', title: 'Discovery call', text: "Your goals, your data, and whether I'm the right fit." },
-  { when: 'WEEKS 2–3', title: 'Audit & tracking check', text: 'Technical SEO, AI visibility and analytics accuracy, reviewed together.' },
+  { when: 'WEEKS 2–3', title: 'SEO & AI visibility audit', text: 'Technical SEO, content and AI citations, reviewed together.' },
   { when: 'WEEK 4', title: 'Prioritised roadmap', text: 'The fixes ranked by impact and effort, with clear owners.' },
-  { when: 'ONGOING', title: 'Build, test, report', text: 'Implementation, experiments and a live dashboard you can check anytime.', accent: true },
+  { when: 'ONGOING', title: 'Build, publish, report', text: 'Implementation, content and a live visibility dashboard you can check anytime.', accent: true },
 ];
 
-export const skills = ['GA4', 'GTM', 'BigQuery', 'SQL', 'Python', 'Looker Studio', 'Adobe Analytics', 'Screaming Frog', 'Ahrefs', 'LangGraph'];
+export const skills = ['Screaming Frog', 'Ahrefs', 'DataForSEO', 'Schema markup', 'Python', 'LangGraph', 'Google ADK', 'BigQuery', 'Looker Studio', 'GA4'];
 
 // Agency clients: always shown as "via AKQA & R/GA".
 export const agencyBrands = ['KFC', 'Toyota', 'HESTA', 'Fonterra'];
 
-export const goals = ['Organic traffic & rankings', 'AI search visibility', 'Analytics & tracking', 'Conversion rate'];
+export const goals = ['AI search visibility', 'Organic traffic & rankings', 'Technical SEO', 'Something else'];
 export const budgets = ['[BUDGET RANGE 1]', '[BUDGET RANGE 2]', '[BUDGET RANGE 3]'];
