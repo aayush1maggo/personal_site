@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils';
+---
+
+<Base title="Page not found – Aayush Maggo" description="That page doesn't exist." noindex>
+  <section class="container page-hero page-hero--full">
+    <span class="eyebrow"><span class="marker" aria-hidden="true"></span>404</span>
+    <h1 class="h-hero">That page isn't here.</h1>
+    <p class="lede">It may have moved, or the link might be wrong.</p>
+    <div class="btn-row">
+      <a class="btn btn--dark" href={url('/')}>Back to the homepage</a>
+      <a class="btn btn--outline" href={url('/contact/')}>Get in touch</a>
+    </div>
+  </section>
+</Base>

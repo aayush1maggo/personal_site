@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Process from '../components/Process.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { services } from '../data';
+import { BOOKING_URL } from '../config';
+---
+
+<Base
+  title="Services – SEO, AI search, analytics and CRO – Aayush Maggo"
+  description="Technical SEO, AI search visibility (AEO/GEO), GA4 and analytics, and CRO. Start with a fixed-price audit or bring me in for ongoing work."
+>
+  <section class="container page-hero">
+    <span class="eyebrow"><span class="marker" aria-hidden="true"></span>Services</span>
+    <h1 class="h-hero">Four ways I help brands grow</h1>
+    <p class="lede">
+      Start with a fixed-price audit, or bring me in for ongoing work. Either way, every recommendation ties back to a number.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn--dark" href={BOOKING_URL} data-booking data-cta="services-hero">Book a free 30-min call</a>
+    </div>
+  </section>
+
+  <div class="container">
+    {
+      services.map((s) => (
+        <section id={s.id} class="service" aria-labelledby={`${s.id}-title`}>
+          <div class="stack stack--16">
+            <span class="card__num">{s.num}</span>
+            <h2 id={`${s.id}-title`} class="h-section">{s.title}</h2>
+            <p class="muted">{s.text}</p>
+          </div>
+          <div class="packages">
+            {s.packages.map((p) => (
+              <article class="card">
+                <span class="eyebrow">{p.basis}</span>
+                <h3 class="h-card">{p.name}</h3>
+                <ul class="ticks">
+                  {p.items.map((i) => <li>{i}</li>)}
+                </ul>
+                <span class="package__price">From {p.price}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  <Process />
+  <ContactSection />
+</Base>

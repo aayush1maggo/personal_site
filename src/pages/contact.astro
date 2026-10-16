@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { BOOKING_URL, isPlaceholder } from '../config';
+---
+
+<Base
+  title="Contact – book a free 30-minute call – Aayush Maggo"
+  description="Book a free 30-minute call or send a few details about your site and goals. I reply within one business day."
+>
+  <ContactSection heading="h1" idPrefix="contact">
+    <div class="booking-embed">
+      {
+        isPlaceholder(BOOKING_URL) ? (
+          <span>[BOOKING EMBED: add your Cal.com or Calendly URL in src/config.ts]</span>
+        ) : (
+          <iframe src={BOOKING_URL} title="Book a call" loading="lazy" class="booking-frame" />
+        )
+      }
+    </div>
+  </ContactSection>
+</Base>
