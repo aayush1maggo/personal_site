@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import { url } from '../../utils';
+
+export async function getStaticPaths() {
+  const work = await getCollection('work');
+  return work.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, tags, metric, metricLabel, pubDate, draft } = entry.data;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const home = new URL(url('/'), Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: pageUrl,
+  mainEntityOfPage: pageUrl,
+  author: { '@type': 'Person', name: 'Aayush Maggo', url: home },
+  publisher: { '@type': 'Person', name: 'Aayush Maggo', url: home },
+  keywords: tags.join(', '),
+  ...(pubDate ? { datePublished: pubDate.toISOString() } : {}),
+};
+---
+
+<Base title={`${title} – Case study – Aayush Maggo`} description={description} type="article" noindex={draft} jsonLd={jsonLd}>
+  <article>
+    <header class="container page-hero">
+      <a class="back-link" href={url('/work/')}>← All case studies</a>
+      <span class="case__tags">{tags.join(' · ')}</span>
+      <h1 class="h-hero">{title}</h1>
+      {draft && <span class="draft-note">Draft: placeholders still to be filled in</span>}
+      <div class="case__metric case__metric--hero">
+        <span class="metric">{metric}</span>
+        <span class="metric__label">{metricLabel}</span>
+      </div>
+    </header>
+    <div class="container section section--after-hero">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+  <ContactSection />
+</Base>
