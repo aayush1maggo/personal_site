@@ -1,16 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
-import { BOOKING_URL } from '../config';
+import CvButton from '../components/CvButton.astro';
 import { url } from '../utils';
 ---
 
-<Base title="Thanks for getting in touch – Aayush Maggo" description="Your enquiry has been sent." noindex>
+<Base title="Thanks for getting in touch – Aayush Maggo" description="Your message has been sent." noindex>
   <section class="container page-hero page-hero--full">
-    <span class="eyebrow"><span class="marker" aria-hidden="true"></span>Enquiry sent</span>
+    <span class="eyebrow"><span class="marker" aria-hidden="true"></span>Message sent</span>
     <h1 class="h-hero">Thanks. I'll be in touch within one business day.</h1>
-    <p class="lede">Want to skip the back-and-forth? Grab a time for a free 30-minute call.</p>
+    <p class="lede">In the meantime, here's my CV and a few examples of my work.</p>
     <div class="btn-row">
-      <a class="btn btn--dark" href={BOOKING_URL} data-booking data-cta="thanks">Book a call</a>
+      <CvButton location="thanks" />
       <a class="btn btn--outline" href={url('/work/')} data-cta="thanks-work">See case studies</a>
     </div>
   </section>

@@ -1,0 +1,26 @@
+---
+import { experience } from '../data';
+---
+
+<ol class="timeline">
+  {
+    experience.map((job) => (
+      <li class:list={['job', { 'job--current': job.current }]}>
+        <div class="job__meta">
+          <span class="job__when">{job.when}</span>
+          <span class="job__where">{job.where}</span>
+        </div>
+        <div class="job__body">
+          <h3 class="h-card">
+            {job.role}{' '}
+            <span class="job__company">· {job.company}</span>
+          </h3>
+          <span class="job__clients">Clients: {job.clients}</span>
+          <ul class="ticks">
+            {job.points.map((p) => <li>{p}</li>)}
+          </ul>
+        </div>
+      </li>
+    ))
+  }
+</ol>

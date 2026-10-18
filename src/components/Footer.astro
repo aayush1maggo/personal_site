@@ -1,5 +1,6 @@
 ---
-import { EMAIL, LINKEDIN_URL } from '../config';
+import { CV_URL, EMAIL, LINKEDIN_URL } from '../config';
+import { url } from '../utils';
 const year = new Date().getFullYear();
 ---
 
@@ -7,8 +8,9 @@ const year = new Date().getFullYear();
   <div class="container site-footer__inner">
     <span>© {year} Aayush Maggo · Sydney, Australia</span>
     <span>
-      <a href={`mailto:${EMAIL}`}>{EMAIL}</a> · <a href={LINKEDIN_URL}>LinkedIn</a>
+      <a href={`mailto:${EMAIL}`}>{EMAIL}</a> · <a href={LINKEDIN_URL}>LinkedIn</a> ·
+      <a href={url(CV_URL)} download data-cv data-cta="footer">CV</a>
     </span>
-    <span>AI search · SEO</span>
+    <span>Open to roles · <a href={url('/freelance/')}>Freelance</a></span>
   </div>
 </footer>

@@ -2,89 +2,87 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ProofBar from '../components/ProofBar.astro';
-import ServiceCards from '../components/ServiceCards.astro';
+import Experience from '../components/Experience.astro';
+import Credentials from '../components/Credentials.astro';
+import FreelanceCards from '../components/FreelanceCards.astro';
 import ToolCards from '../components/ToolCards.astro';
 import CaseCard from '../components/CaseCard.astro';
-import Process from '../components/Process.astro';
-import Skills from '../components/Skills.astro';
+import CvButton from '../components/CvButton.astro';
+import Photo from '../components/Photo.astro';
 import ContactSection from '../components/ContactSection.astro';
-import { BOOKING_URL, EMAIL, LINKEDIN_URL } from '../config';
+import { EMAIL, LINKEDIN_URL, OPEN_TO } from '../config';
 import { url } from '../utils';
 
 const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 const home = new URL(url('/'), Astro.site).href;
 
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    '@id': `${home}#person`,
-    name: 'Aayush Maggo',
-    jobTitle: 'AI Search and SEO Specialist',
-    url: home,
-    email: `mailto:${EMAIL}`,
-    sameAs: [LINKEDIN_URL],
-    address: { '@type': 'PostalAddress', addressLocality: 'Sydney', addressRegion: 'NSW', addressCountry: 'AU' },
-    knowsAbout: ['AI search optimisation', 'Generative engine optimisation', 'Answer engine optimisation', 'Search engine optimisation', 'Technical SEO', 'Keyword research'],
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${home}#person`,
+  name: 'Aayush Maggo',
+  jobTitle: 'Senior SEO & AI Search Specialist',
+  url: home,
+  email: `mailto:${EMAIL}`,
+  sameAs: [LINKEDIN_URL],
+  address: { '@type': 'PostalAddress', addressLocality: 'Sydney', addressRegion: 'NSW', addressCountry: 'AU' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Federation University Australia' },
+    { '@type': 'CollegeOrUniversity', name: 'Kalinga University' },
+  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Senior SEO Specialist',
+    occupationLocation: { '@type': 'City', name: 'Sydney' },
+    skills: 'Technical SEO, AI search optimisation (GEO/AEO), keyword research, content strategy, Python, BigQuery',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    '@id': `${home}#service`,
-    name: 'Aayush Maggo – AI Search & SEO Specialist',
-    url: home,
-    email: EMAIL,
-    founder: { '@id': `${home}#person` },
-    areaServed: 'AU',
-    address: { '@type': 'PostalAddress', addressLocality: 'Sydney', addressRegion: 'NSW', addressCountry: 'AU' },
-    serviceType: ['AI search optimisation (GEO/AEO)', 'Technical SEO', 'SEO strategy'],
-  },
-];
+  knowsAbout: ['AI search optimisation', 'Generative engine optimisation', 'Answer engine optimisation', 'Search engine optimisation', 'Technical SEO', 'Keyword research'],
+};
 ---
 
 <Base
-  title="AI Search & SEO Specialist, Sydney | Aayush Maggo"
-  description="Freelance AI search and SEO specialist in Sydney. Get found on Google and cited in ChatGPT, Gemini and Perplexity. 10+ years across AKQA, R/GA and independent clients."
+  title="Aayush Maggo | Senior SEO & AI Search Specialist, Sydney"
+  description="Senior SEO and AI search specialist in Sydney with 10+ years across AKQA, R/GA and agency teams. Open to senior SEO roles. Download my CV."
   jsonLd={jsonLd}
 >
   <!-- HERO -->
   <section id="top" class="container hero">
     <div class="stack stack--28">
       <div class="eyebrow">
-        <span class="marker" aria-hidden="true"></span>
-        <span>Sydney · Freelance AI search &amp; SEO</span>
+        <span class="marker marker--pulse" aria-hidden="true"></span>
+        <span>{OPEN_TO}</span>
       </div>
-      <h1 class="h-hero">Get found on Google <span class="accent">and</span> in AI answers. Then prove it worked.</h1>
+      <h1 class="h-hero">Senior SEO &amp; AI search specialist. <span class="accent">I build the tools too.</span></h1>
       <p class="lede">
-        AI search optimisation and SEO for growing brands, from a specialist with 10+ years across AKQA, R/GA and
-        independent clients. Strategy, implementation and the tooling to show what moved.
+        10+ years in search across AKQA, R/GA and agency teams. Technical SEO, GEO/AEO and content strategy, backed by
+        the Python, BigQuery and AI-agent skills to automate the heavy lifting.
       </p>
       <div class="btn-row">
-        <a class="btn btn--dark" href={BOOKING_URL} data-booking data-cta="hero">Book a free 30-min call</a>
-        <a class="btn btn--outline" href={url('/work/')} data-cta="hero-work">See case studies</a>
+        <CvButton location="hero" />
+        <a class="btn btn--outline" href="#experience" data-cta="hero-experience">View experience</a>
       </div>
     </div>
 
-    <div class="panel panel--raised" aria-label="Illustrative visibility monitor">
+    <div class="panel panel--raised" aria-label="What I work on">
       <div class="monitor__head">
-        <span>VISIBILITY MONITOR</span>
+        <span>WHAT I WORK ON</span>
         <span>Illustrative</span>
       </div>
       <div class="monitor__rows">
         <div class="monitor__row">
           <span class="monitor__label">Google organic rankings</span>
           <svg aria-hidden="true" width="120" height="32" viewBox="0 0 120 32" fill="none"><polyline points="0,28 20,24 40,25 60,17 80,14 100,8 120,4" stroke="#101915" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
-          <span class="monitor__note">Keyword positions, tracked daily in BigQuery</span>
+          <span class="monitor__note">Technical SEO, content and rank tracking in BigQuery</span>
         </div>
         <div class="monitor__row">
           <span class="monitor__label">AI answer citations</span>
           <svg aria-hidden="true" width="120" height="32" viewBox="0 0 120 32" fill="none"><polyline points="0,26 20,27 40,22 60,20 80,12 100,10 120,6" stroke="#D9480F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
-          <span class="monitor__note">Brand mentions in ChatGPT, Gemini, Perplexity</span>
+          <span class="monitor__note">Brand visibility in ChatGPT, Gemini, Perplexity</span>
         </div>
         <div class="monitor__row">
-          <span class="monitor__label">Leads from search</span>
+          <span class="monitor__label">Automation</span>
           <svg aria-hidden="true" width="120" height="32" viewBox="0 0 120 32" fill="none"><rect x="0" y="20" width="12" height="12" rx="2" fill="#C9CEC5"></rect><rect x="18" y="16" width="12" height="16" rx="2" fill="#C9CEC5"></rect><rect x="36" y="18" width="12" height="14" rx="2" fill="#C9CEC5"></rect><rect x="54" y="12" width="12" height="20" rx="2" fill="#C9CEC5"></rect><rect x="72" y="9" width="12" height="23" rx="2" fill="#C9CEC5"></rect><rect x="90" y="5" width="12" height="27" rx="2" fill="#101915"></rect><rect x="108" y="2" width="12" height="30" rx="2" fill="#101915"></rect></svg>
-          <span class="monitor__note">Organic and AI referrals, from click to enquiry</span>
+          <span class="monitor__note">AI agents for research, briefs and audits</span>
         </div>
       </div>
     </div>
@@ -92,15 +90,27 @@ const jsonLd = [
 
   <ProofBar />
 
-  <!-- SERVICES -->
-  <section id="services" class="container section">
+  <!-- EXPERIENCE -->
+  <section id="experience" class="container section">
     <div class="section-head">
-      <h2 class="h-section measure-h">Three ways I help brands get found</h2>
+      <h2 class="h-section measure-h">Experience</h2>
       <p class="muted measure-p">
-        Start with a fixed-price audit, or bring me in for ongoing work. Either way, every recommendation ties back to a number.
+        Agency, consultancy and in-the-weeds technical work, from eCommerce SEO in 2014 to AI search today.
       </p>
     </div>
-    <ServiceCards />
+    <Experience />
+    <div class="btn-row">
+      <CvButton location="experience" label="Download the full CV" />
+      <a class="btn btn--outline" href={LINKEDIN_URL} data-cta="experience-linkedin">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="skills" class="band-alt">
+    <div class="container section section--tight">
+      <h2 class="h-section">Skills, education &amp; awards</h2>
+      <Credentials />
+    </div>
   </section>
 
   <!-- LAB -->
@@ -109,10 +119,10 @@ const jsonLd = [
       <div class="stack stack--16 measure">
         <span class="eyebrow">The lab</span>
         <h2 class="h-section">I don't just use SEO tools. I build them.</h2>
-        <p class="muted">Custom tooling means faster research, cheaper reporting and data you own, not data rented from a SaaS dashboard.</p>
+        <p class="muted">Custom tooling means faster research, cheaper reporting and data the team owns, not data rented from a SaaS dashboard.</p>
       </div>
       <ToolCards />
-      <a class="btn btn--light self-start" href={url('/contact/?goal=AI+search+visibility')} data-cta="lab">Check your brand's AI visibility, free</a>
+      <a class="btn btn--light self-start" href={url('/tools/')} data-cta="lab">See the tools</a>
     </div>
   </section>
 
@@ -124,26 +134,42 @@ const jsonLd = [
     </div>
   </section>
 
-  <Process />
-
   <!-- ABOUT -->
   <section id="about" class="band-alt">
     <div class="container about">
-      <div class="photo">[YOUR PHOTO]</div>
+      <Photo />
       <div class="stack">
         <span class="eyebrow">About</span>
         <h2 class="h-section">Hi, I'm Aayush.</h2>
         <p class="body-soft">
           I've spent 10+ years in search: eCommerce SEO in Chandigarh, measurement and experimentation at AKQA and R/GA
-          in Melbourne, and now independent AI search and SEO work from Sydney.
+          in Melbourne, and now senior SEO and AI search work in Sydney.
         </p>
         <p class="body-soft">
-          Agency pedigree, freelancer focus. You work with me directly, and I bring the engineering skills to build what
-          off-the-shelf tools can't.
+          I'm looking for a senior SEO or AI search role where I can own strategy, get hands-on with the technical work
+          and build the automation that makes a team faster. Based in Sydney, Australian Permanent Resident.
         </p>
-        <Skills />
+        <div class="btn-row">
+          <CvButton location="about" />
+          <a class="btn btn--outline" href={url('/about/')} data-cta="about-more">More about me</a>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- FREELANCE (secondary) -->
+  <section id="freelance" class="container section section--tight">
+    <div class="section-head">
+      <div class="stack stack--16">
+        <span class="eyebrow">Also available</span>
+        <h2 class="h-section measure-h">Freelance projects</h2>
+      </div>
+      <p class="muted measure-p">
+        I also take on a small number of freelance AI search and SEO projects.
+      </p>
+    </div>
+    <FreelanceCards />
+    <a class="btn btn--outline self-start" href={url('/freelance/')} data-cta="home-freelance">Freelance enquiries</a>
   </section>
 
   <ContactSection />

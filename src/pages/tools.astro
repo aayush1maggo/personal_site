@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ToolCards from '../components/ToolCards.astro';
 import ContactSection from '../components/ContactSection.astro';
-import { url } from '../utils';
+import CvButton from '../components/CvButton.astro';
 ---
 
 <Base
@@ -14,12 +14,12 @@ import { url } from '../utils';
       <span class="eyebrow">The lab</span>
       <h1 class="h-hero">I don't just use SEO tools. I build them.</h1>
       <p class="lede muted">
-        Custom tooling means faster research, cheaper reporting and data you own, not data rented from a SaaS dashboard.
+        Custom tooling means faster research, cheaper reporting and data the team owns, not data rented from a SaaS dashboard. All three are things I've built and run on client work.
       </p>
     </div>
     <div class="container section section--after-hero">
       <ToolCards />
-      <a class="btn btn--light self-start" href={url('/contact/?goal=AI+search+visibility')} data-cta="tools">Check your brand's AI visibility, free</a>
+      <CvButton variant="light" location="tools" />
     </div>
   </section>
   <ContactSection />

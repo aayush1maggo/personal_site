@@ -1,32 +1,54 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProofBar from '../components/ProofBar.astro';
-import Skills from '../components/Skills.astro';
-import Process from '../components/Process.astro';
+import Experience from '../components/Experience.astro';
+import Credentials from '../components/Credentials.astro';
+import CvButton from '../components/CvButton.astro';
+import Photo from '../components/Photo.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { LINKEDIN_URL, OPEN_TO } from '../config';
 ---
 
 <Base
-  title="About Aayush Maggo | AI Search & SEO Specialist, Sydney"
-  description="10+ years in search: eCommerce SEO in Chandigarh, AKQA and R/GA in Melbourne, and now independent AI search and SEO work from Sydney."
+  title="About Aayush Maggo | Senior SEO & AI Search Specialist, Sydney"
+  description="10+ years in search: eCommerce SEO in Chandigarh, AKQA and R/GA in Melbourne, and now senior SEO and AI search work in Sydney. Open to senior SEO roles."
 >
   <section class="container about">
-    <div class="photo">[YOUR PHOTO]</div>
+    <Photo />
     <div class="stack">
-      <span class="eyebrow"><span class="marker" aria-hidden="true"></span>About</span>
+      <span class="eyebrow"><span class="marker marker--pulse" aria-hidden="true"></span>{OPEN_TO}</span>
       <h1 class="h-section">Hi, I'm Aayush.</h1>
       <p class="body-soft">
-        I've spent 10+ years in search: eCommerce SEO in Chandigarh, measurement and experimentation at AKQA and R/GA in
-        Melbourne, and now independent AI search and SEO work from Sydney.
+        I've spent 10+ years in search. I started in eCommerce SEO in Chandigarh, owning organic search end to end for
+        online retailers. In Melbourne I moved into measurement and experimentation at AKQA and R/GA, on brands like KFC,
+        Toyota, HESTA and Fonterra. Since then I've led technical SEO, keyword strategy and AI search work for agency
+        clients from Sydney.
       </p>
       <p class="body-soft">
-        Agency pedigree, freelancer focus. You work with me directly, and I bring the engineering skills to build what
-        off-the-shelf tools can't.
+        That mix is the point: I can run a crawl audit, map keywords to intent, explain the numbers to a stakeholder and
+        write the Python that automates the next audit. Lately that means a rank tracker on BigQuery, an AEO monitor for
+        ChatGPT, Gemini and Perplexity, and AI agents that draft research and briefs.
       </p>
-      <Skills />
+      <p class="body-soft">
+        <strong>What I'm looking for:</strong> a senior SEO or AI search role in Sydney where I can own strategy, stay
+        hands-on with technical work and help a team move faster. Australian Permanent Resident.
+      </p>
+      <div class="btn-row">
+        <CvButton location="about-page" />
+        <a class="btn btn--outline" href={LINKEDIN_URL} data-cta="about-linkedin">LinkedIn</a>
+      </div>
     </div>
   </section>
   <ProofBar />
-  <Process />
+  <section class="container section">
+    <h2 class="h-section">Experience</h2>
+    <Experience />
+  </section>
+  <section class="band-alt">
+    <div class="container section section--tight">
+      <h2 class="h-section">Skills, education &amp; awards</h2>
+      <Credentials />
+    </div>
+  </section>
   <ContactSection />
 </Base>
