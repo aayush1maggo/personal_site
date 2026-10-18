@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { freelance } from '../data';
+import { BOOKING_URL, EMAIL, isPlaceholder } from '../config';
+import { url } from '../utils';
+
+const home = new URL(url('/'), Astro.site).href;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${home}freelance/#service`,
+  name: 'Aayush Maggo – Freelance AI Search & SEO',
+  url: new URL(url('/freelance/'), Astro.site).href,
+  email: EMAIL,
+  founder: { '@type': 'Person', '@id': `${home}#person`, name: 'Aayush Maggo' },
+  areaServed: 'AU',
+  address: { '@type': 'PostalAddress', addressLocality: 'Sydney', addressRegion: 'NSW', addressCountry: 'AU' },
+  serviceType: freelance.map((s) => s.title),
+};
+const hasBooking = !isPlaceholder(BOOKING_URL);
+---
+
+<Base
+  title="Freelance AI Search & SEO, Sydney | Aayush Maggo"
+  description="Freelance AI search optimisation (GEO/AEO), technical SEO audits and SEO strategy for a small number of clients."
+  jsonLd={jsonLd}
+>
+  <section class="container page-hero">
+    <span class="eyebrow"><span class="marker" aria-hidden="true"></span>Freelance</span>
+    <h1 class="h-hero">Freelance AI search &amp; SEO</h1>
+    <p class="lede">
+      I take on a small number of freelance projects. Tell me about your site and goals, and I'll let you know if I'm a
+      good fit.
+    </p>
+    <div class="btn-row">
+      {
+        hasBooking ? (
+          <a class="btn btn--dark" href={BOOKING_URL} data-booking data-cta="freelance-hero">Book a 30-min call</a>
+        ) : (
+          <a class="btn btn--dark" href="#enquire" data-cta="freelance-hero">Send an enquiry</a>
+        )
+      }
+    </div>
+  </section>
+
+  <div class="container">
+    {
+      freelance.map((s) => (
+        <section id={s.id} class="service" aria-labelledby={`${s.id}-title`}>
+          <div class="stack stack--16">
+            <span class="card__num">{s.num}</span>
+            <h2 id={`${s.id}-title`} class="h-section">{s.title}</h2>
+          </div>
+          <p class="muted">{s.text}</p>
+        </section>
+      ))
+    }
+  </div>
+
+  <section id="enquire" class="band-dark">
+    <div class="container contact">
+      <div class="stack">
+        <h2 class="h-contact">Have a project in mind?</h2>
+        <p class="muted measure-sm">Send a few details and I'll reply within one business day.</p>
+        <div class="contact__details">
+          <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        </div>
+      </div>
+      <ContactForm idPrefix="freelance" goal="Freelance project" />
+    </div>
+  </section>
+</Base>

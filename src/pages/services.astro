@@ -1,52 +1,20 @@
 ---
-import Base from '../layouts/Base.astro';
-import Process from '../components/Process.astro';
-import ContactSection from '../components/ContactSection.astro';
-import { services } from '../data';
-import { BOOKING_URL } from '../config';
+// /services/ moved to /freelance/ (GitHub Pages has no server redirects).
+import { url } from '../utils';
+const target = url('/freelance/');
+const canonical = new URL(target, Astro.site).href;
 ---
 
-<Base
-  title="AI SEO & SEO Services, Sydney | Aayush Maggo"
-  description="AI search optimisation (GEO/AEO), technical SEO and SEO strategy. Start with a fixed-price audit or bring me in for ongoing work."
->
-  <section class="container page-hero">
-    <span class="eyebrow"><span class="marker" aria-hidden="true"></span>Services</span>
-    <h1 class="h-hero">Three ways I help brands get found</h1>
-    <p class="lede">
-      Start with a fixed-price audit, or bring me in for ongoing work. Either way, every recommendation ties back to a number.
-    </p>
-    <div class="btn-row">
-      <a class="btn btn--dark" href={BOOKING_URL} data-booking data-cta="services-hero">Book a free 30-min call</a>
-    </div>
-  </section>
-
-  <div class="container">
-    {
-      services.map((s) => (
-        <section id={s.id} class="service" aria-labelledby={`${s.id}-title`}>
-          <div class="stack stack--16">
-            <span class="card__num">{s.num}</span>
-            <h2 id={`${s.id}-title`} class="h-section">{s.title}</h2>
-            <p class="muted">{s.text}</p>
-          </div>
-          <div class="packages">
-            {s.packages.map((p) => (
-              <article class="card">
-                <span class="eyebrow">{p.basis}</span>
-                <h3 class="h-card">{p.name}</h3>
-                <ul class="ticks">
-                  {p.items.map((i) => <li>{i}</li>)}
-                </ul>
-                <span class="package__price">From {p.price}</span>
-              </article>
-            ))}
-          </div>
-        </section>
-      ))
-    }
-  </div>
-
-  <Process />
-  <ContactSection />
-</Base>
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <title>Moved to /freelance/</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonical} />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+  </head>
+  <body>
+    <a href={target}>This page has moved to /freelance/</a>
+  </body>
+</html>

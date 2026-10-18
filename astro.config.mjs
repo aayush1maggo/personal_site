@@ -13,7 +13,7 @@ const draftSlugs = readdirSync('./src/content/work')
   .filter((f) => /^draft:\s*true\s*$/m.test(readFileSync(`./src/content/work/${f}`, 'utf8')))
   .map((f) => f.replace(/\.md$/, ''));
 
-const excluded = ['/thanks/', '/404/', ...draftSlugs.map((s) => `/work/${s}/`)];
+const excluded = ['/thanks/', '/404/', '/services/', ...draftSlugs.map((s) => `/work/${s}/`)];
 
 export default defineConfig({
   site: SITE,

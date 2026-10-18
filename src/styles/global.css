@@ -336,6 +336,18 @@ p {
   color: #fff;
 }
 
+.btn__meta {
+  margin-left: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.marker--pulse {
+  box-shadow: 0 0 0 4px rgba(217, 72, 15, 0.18);
+}
+
 .btn-row {
   display: flex;
   flex-wrap: wrap;
@@ -641,44 +653,99 @@ p {
   align-items: center;
 }
 
-/* ---------- Process ---------- */
+/* ---------- Experience ---------- */
 
-.steps {
+.timeline {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
-  gap: 32px;
-}
-
-.step {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border-top: 2px solid var(--ink);
-  padding-top: 20px;
 }
 
-.step--accent {
+.job {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 12px 40px;
+  padding: 28px 0;
+  border-top: 2px solid var(--ink);
+}
+
+.job + .job {
+  border-top-width: 1px;
+  border-top-color: var(--border-strong);
+}
+
+.job--current {
   border-top-color: var(--accent);
 }
 
-.step__when {
+.job__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--muted);
 }
 
-.step__title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 22px;
+.job__when {
+  color: var(--ink);
+  font-weight: 500;
 }
 
-.step__text {
-  font-size: 15px;
+.job__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.job__company {
   color: var(--muted);
+  font-weight: 700;
+}
+
+.job__clients {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.job .ticks li + li {
+  margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .job {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Credentials ---------- */
+
+.creds {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+}
+
+.creds li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.creds strong {
+  font-weight: 600;
+}
+
+.creds span {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 /* ---------- About ---------- */
@@ -694,6 +761,9 @@ p {
 
 .photo {
   aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 30%;
+  height: auto;
   max-width: 440px;
   width: 100%;
   border-radius: var(--radius-panel);

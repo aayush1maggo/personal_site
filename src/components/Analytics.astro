@@ -22,10 +22,13 @@ const enabled = import.meta.env.PROD && !isPlaceholder(GA4_ID);
   )
 }
 <script is:inline>
-  // book_call_click on any booking link; cta_click (with location) on main CTAs.
+  // cv_download on any CV link; book_call_click on any booking link; cta_click (with location) on main CTAs.
   document.addEventListener('click', function (e) {
-    var el = e.target.closest && e.target.closest('a[data-booking], a[data-cta], button[data-cta]');
+    var el = e.target.closest && e.target.closest('a[data-cv], a[data-booking], a[data-cta], button[data-cta]');
     if (!el) return;
+    if (el.hasAttribute('data-cv')) {
+      gtag('event', 'cv_download', { location: el.dataset.cta || 'unknown' });
+    }
     if (el.hasAttribute('data-booking')) {
       gtag('event', 'book_call_click', { location: el.dataset.cta || 'unknown' });
     }

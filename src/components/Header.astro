@@ -1,12 +1,13 @@
 ---
-import { BOOKING_URL } from '../config';
+import CvButton from './CvButton.astro';
 import { url } from '../utils';
 
 const links = [
-  { href: '/services/', label: 'Services' },
-  { href: '/work/', label: 'Case studies' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/work/', label: 'Work' },
   { href: '/tools/', label: 'Tools' },
   { href: '/about/', label: 'About' },
+  { href: '/freelance/', label: 'Freelance' },
   { href: '/contact/', label: 'Contact' },
 ];
 const current = Astro.url.pathname;
@@ -21,12 +22,12 @@ const current = Astro.url.pathname;
     <nav class="site-nav" aria-label="Main">
       {
         links.map(({ href, label }) => (
-          <a href={url(href)} aria-current={current.startsWith(url(href)) ? 'page' : undefined}>
+          <a href={url(href)} aria-current={!href.includes('#') && current.startsWith(url(href)) ? 'page' : undefined}>
             {label}
           </a>
         ))
       }
-      <a class="btn btn--dark btn--sm" href={BOOKING_URL} data-booking data-cta="nav">Book a call</a>
+      <CvButton size="sm" location="nav" />
     </nav>
   </div>
 </header>

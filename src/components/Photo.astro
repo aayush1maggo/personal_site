@@ -1,0 +1,6 @@
+---
+import { Image } from 'astro:assets';
+import photo from '../assets/aayush-maggo.png';
+---
+
+<Image class="photo" src={photo} alt="Aayush Maggo" widths={[440, 880]} sizes="(max-width: 480px) 100vw, 440px" />

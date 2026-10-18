@@ -17,8 +17,8 @@ npm run preview   # serve the built site
 
 | What | Where |
 | --- | --- |
-| Booking URL, Formspree ID, GA4 ID, contact details | `src/config.ts` |
-| Services, packages, tools, process steps, skills, budget ranges | `src/data.ts` |
+| CV path, "open to" line, booking URL, Formspree ID, GA4 ID, contact details | `src/config.ts` |
+| Experience, education, certifications, freelance offers, tools, skills | `src/data.ts` |
 | Case studies (Markdown, Problem → Approach → Result) | `src/content/work/*.md` |
 | Design tokens and all styles | `src/styles/global.css` |
 | Site URL and base path | `astro.config.mjs` |
@@ -41,16 +41,16 @@ The site is served at `https://www.aayushmaggo.com/`. The bare domain `aayushmag
 GA4 loads only in production builds, and only once `GA4_ID` is set.
 
 - `cta_click` (with `location`) on any element with `data-cta`
-- `book_call_click` on any link with `data-booking`
+- `cv_download` on any CV link (`data-cv`): the primary conversion
+- `book_call_click` on any link with `data-booking` (freelance page only)
 - `generate_lead` on `/thanks/`
 
 ## Placeholder checklist
 
-- [ ] `BOOKING_URL` in `src/config.ts` (Cal.com or Calendly). This also switches on the booking embed on `/contact/`
+- [ ] `BOOKING_URL` in `src/config.ts` (Cal.com or Calendly). Used only on `/freelance/`; without it the button jumps to the enquiry form
 - [ ] `FORMSPREE_ID` in `src/config.ts`
 - [ ] `GA4_ID` in `src/config.ts`
-- [ ] `[PRICE]` for each package in `src/data.ts`
-- [ ] `[BUDGET RANGE 1–3]` in `src/data.ts`
-- [ ] `[YOUR PHOTO]` on the homepage and `/about/` (add the image under `src/assets/` and render with `astro:assets` `<Image>`)
+- [x] CV at `public/Aayush_Maggo_CV.pdf` (phone number removed). When updating, redact the phone and keep `src/data.ts` experience in sync
+- [x] Photo at `src/assets/aayush-maggo.png`
 - [ ] Case studies: First 5 Minutes (`[+X%]`, `[TIMEFRAME]`), Angry Chair (`[PRIMARY COMMERCIAL KEYWORDS]`), Centralised SEO reporting (problem/approach detail). Use real, verified figures only
 - [ ] Open Graph share image (add `og:image` in `src/layouts/Base.astro`)

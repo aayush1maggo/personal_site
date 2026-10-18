@@ -1,18 +1,17 @@
 ---
-import { services } from '../data';
+import { freelance } from '../data';
 import { url } from '../utils';
 ---
 
 <div class="grid grid--260">
   {
-    services.map((s) => (
+    freelance.map((s) => (
       <article class="card">
         <span class="card__num">{s.num}</span>
         <h3 class="h-card">
-          <a class="card__link" href={url(`/services/#${s.id}`)}>{s.title}</a>
+          <a class="card__link" href={url(`/freelance/#${s.id}`)}>{s.title}</a>
         </h3>
         <p class="card__text">{s.text}</p>
-        <span class="card__foot">From {s.packages[0].price}</span>
       </article>
     ))
   }

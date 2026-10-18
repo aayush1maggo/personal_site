@@ -1,6 +1,8 @@
 ---
 import ContactForm from './ContactForm.astro';
-import { BOOKING_URL, EMAIL, LINKEDIN_URL } from '../config';
+import CvButton from './CvButton.astro';
+import { EMAIL, LINKEDIN_URL } from '../config';
+import { url } from '../utils';
 
 interface Props {
   id?: string;
@@ -14,15 +16,18 @@ const Heading = heading;
 <section id={id} class="band-dark">
   <div class="container contact">
     <div class="stack">
-      <Heading class="h-contact">Let's find your next growth lever.</Heading>
+      <Heading class="h-contact">Hiring for SEO or AI search? Let's talk.</Heading>
       <p class="muted measure-sm">
-        Book a free 30-minute call, or send a few details and I'll reply within one business day.
+        Grab my CV, email me or send a message. I reply within one business day.
       </p>
-      <a class="btn btn--accent self-start" href={BOOKING_URL} data-booking data-cta={`contact-${idPrefix}`}>Book a call</a>
+      <CvButton variant="accent" class="self-start" location={`contact-${idPrefix}`} />
       <div class="contact__details">
         <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
         <a href={LINKEDIN_URL}>LinkedIn</a>
       </div>
+      <p class="small muted">
+        Have a project instead? <a href={url('/freelance/')}>I take on freelance work too.</a>
+      </p>
       <slot />
     </div>
     <ContactForm idPrefix={idPrefix} />
