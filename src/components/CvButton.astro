@@ -1,0 +1,23 @@
+---
+import { CV_URL } from '../config';
+import { url } from '../utils';
+
+interface Props {
+  variant?: 'dark' | 'accent' | 'light' | 'outline';
+  size?: 'sm';
+  class?: string;
+  location: string;
+  label?: string;
+}
+const { variant = 'dark', size, location, label = 'Download CV', class: extra } = Astro.props;
+---
+
+<a
+  class:list={['btn', `btn--${variant}`, { 'btn--sm': size === 'sm' }, extra]}
+  href={url(CV_URL)}
+  download="Aayush_Maggo_CV.pdf"
+  data-cv
+  data-cta={location}
+>
+  {label} <span class="btn__meta">PDF</span>
+</a>
