@@ -1,6 +1,6 @@
-# Aayush Maggo – Freelance Website
+# Aayush Maggo – Personal Website
 
-Personal freelance site for Aayush Maggo, a Sydney-based AI search (GEO/AEO) and SEO specialist. Position as AI search + SEO first; analytics and reporting are supporting proof, not a separate service line (decided Oct 2026 from AU search-volume research). The site's job is to get the right client to book a call or send an enquiry.
+Personal site for Aayush Maggo, a Sydney-based senior SEO and AI search (GEO/AEO) specialist. Position as AI search + SEO first; analytics and reporting are supporting proof (decided Oct 2026 from AU search-volume research). **The site's main job is employment: get hiring managers and recruiters to download the CV (`public/Aayush_Maggo_CV.pdf`) or get in touch.** Freelance projects are secondary, on `/freelance/` and one homepage band (repositioned 18 Oct 2026).
 
 ## Hosting: GitHub Pages (static only)
 
@@ -27,11 +27,11 @@ Personal freelance site for Aayush Maggo, a Sydney-based AI search (GEO/AEO) and
 ## Site structure
 
 1. `/`: homepage (as per design)
-2. `/services`: one section per service, with packages and `[PRICE]` placeholders
+2. `/freelance`: slim secondary offer (3 services, no prices); `/services/` is a meta-refresh stub to it
 3. `/work`: case study index, plus `/work/[slug]` pages from an Astro content collection (Markdown). Structure: Problem → Approach → Result, with headline metric.
 4. `/tools`: the "Lab" (rank tracker, AEO monitor, AI research agents)
 5. `/about`
-6. `/contact`: the form, plus booking embed
+6. `/contact`: CV download, email/LinkedIn and the form
 7. `/thanks`: post-submission page
 8. `404.html`
 
@@ -40,26 +40,27 @@ Case-study entries to create as drafts: First 5 Minutes, Angry Chair, Centralise
 ## Forms (static-site compatible)
 
 - Use **Formspree**: `<form action="https://formspree.io/f/[FORM_ID]" method="POST">`.
-- Fields: name, **email (required, missing from the design: add it)**, website, goal (select), budget (select), message (textarea). Every input needs a `name` attribute and a `<label>`.
+- Fields: name, **email (required)**, company or website, goal (select: role / freelance / other), message (textarea). Every input needs a `name` attribute and a `<label>`.
 - Add a honeypot field `_gotcha` (hidden) for spam.
 - Redirect to `/thanks` after submit (`_next` hidden field, or Formspree's AJAX submit with a success state).
-- "Book a call" buttons link to `[CAL.COM OR CALENDLY URL]`.
+- "Download CV" (`CvButton.astro`) is the primary CTA everywhere. "Book a call" (`[CAL.COM OR CALENDLY URL]`) appears only on `/freelance/`.
 
 ## Analytics and SEO (this site is part of the portfolio, so do it properly)
 
 - GA4 via `gtag.js` with measurement ID placeholder `[GA4_ID]`, loaded only in production builds.
-- Events: `generate_lead` on `/thanks`, `book_call_click` on booking links, `cta_click` with a `location` parameter on main CTAs.
+- Events: `cv_download` on CV links (primary conversion), `generate_lead` on `/thanks`, `book_call_click` on booking links, `cta_click` with a `location` parameter on main CTAs.
 - Per-page `<title>`, meta description, canonical, Open Graph and Twitter tags.
-- JSON-LD: `Person` and `ProfessionalService` on the homepage; `Article` on case studies.
+- JSON-LD: `Person` on the homepage; `ProfessionalService` on `/freelance/`; `Article` on case studies.
 - Generate `sitemap.xml` (`@astrojs/sitemap`) and `robots.txt`.
 - Target Lighthouse 95+ on all four categories. Optimise images with `astro:assets`.
 
 ## Content rules
 
 - Australian English (optimise, colour, organisation).
-- Contact details shown: email `ayush.maggo@gmail.com` and LinkedIn `linkedin.com/in/aayushmaggo` only. **Do not show a phone number.**
+- Contact details shown: email `ayush.maggo@gmail.com` and LinkedIn `linkedin.com/in/aayushmaggo` only. **Do not show a phone number**, including inside the CV PDF (the source CVs in ~/Downloads include one; redact before replacing).
+- Experience, education and certifications in `src/data.ts` mirror the CV. Keep them in sync when the CV changes.
 - Brand names KFC, Toyota, HESTA and Fonterra must always appear as "via AKQA & R/GA". They were agency clients, not Aayush's direct clients.
-- Photo is a placeholder (`[YOUR PHOTO]`) until supplied.
+- Photo: `src/assets/aayush-maggo.png`, rendered by `src/components/Photo.astro`.
 
 ## Working conventions
 
