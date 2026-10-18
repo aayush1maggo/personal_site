@@ -2,27 +2,17 @@
 
 export const experience = [
   {
-    company: 'Rocket Agency',
-    role: 'Senior SEO Specialist',
-    when: 'Jul 2026 – now',
-    where: 'Sydney',
-    clients: 'Penguin Random House, NobleOak',
-    points: [
-      'Building AI automation workflows for core SEO operations: audits, keyword research and content briefs.',
-      'End-to-end technical SEO audits: crawlability, indexation, canonicalisation, sitemaps and robots directives.',
-    ],
-    current: true,
-  },
-  {
-    company: 'A.P. Web Solutions',
-    role: 'Senior SEO & Data Specialist',
-    when: 'Jul 2024 – Apr 2026',
+    company: 'Independent',
+    role: 'AI Search Specialist',
+    when: 'Jul 2024 – now',
     where: 'Remote, Australia',
     clients: 'First 5 Minutes, Angry Chair, Turnkey Furniture',
     points: [
-      'Built a proprietary rank tracker on DataForSEO and BigQuery, and an AEO monitor for brand citations in ChatGPT, Gemini and Perplexity.',
+      'Own the technical analytics infrastructure and organic search strategy for a portfolio of SMBs, from audits and schema to keyword strategy.',
+      'Built AI automation for keyword research, content-gap analysis, briefs and SERP monitoring, plus a DataForSEO + BigQuery rank tracker and an AEO monitor for ChatGPT, Gemini and Perplexity.',
       'Drove most managed clients to page 1 for primary commercial keywords; centralised Looker Studio reporting cut manual reporting time by 40%.',
     ],
+    current: true,
   },
   {
     company: 'AKQA',
